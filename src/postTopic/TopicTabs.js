@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const URL = 'url';
 const TEXT = 'text';
 
-
 const TopicTabs = ({ formType, changeFormType }) => (
-  <ul className="nav nav-tabs nav-justified">
-    <li role="presentation" className={formType === TEXT ? 'active' : ''}>
+  <ul className="nav nav-tabs">
+    <Tab role="presentation" className={formType === TEXT ? 'active' : ''}>
       <a href="#textTab" onClick={() => changeFormType(TEXT)}>{TEXT.toUpperCase()}</a>
-    </li>
-    <li role="presentation" className={formType === URL ? 'active' : ''}>
+    </Tab>
+    <Tab role="presentation" className={formType === URL ? 'active' : ''}>
       <a href="#urlTab" onClick={() => changeFormType(URL)}>{URL.toUpperCase()}</a>
-    </li>
+    </Tab>
   </ul>
 );
 
@@ -23,3 +23,6 @@ TopicTabs.propTypes = {
   changeFormType: PropTypes.func.isRequired,
 };
 
+const Tab = styled.li`
+    width: 50%;
+`;

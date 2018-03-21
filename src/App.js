@@ -3,7 +3,6 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -12,6 +11,7 @@ import logger from 'redux-logger';
 import rootReducer from './rootReducer';
 
 import PostTopic from './postTopic/PostTopic';
+import TopicList from './topics/TopicsList';
 
 const middleware = [logger];
 
@@ -30,13 +30,13 @@ const App = () => (
       </header>
       <div className="container">
         <div className="row">
-          <div className="col-sm-3" />
-          <div className="col-sm-6">
+          <div className="col-sm-2" />
+          <div className="col-sm-8">
             <PostTopic />
             <br />
             <TopicList />
           </div>
-          <div className="col-sm-3" />
+          <div className="col-sm-2" />
         </div>
       </div>
     </div>

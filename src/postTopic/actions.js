@@ -1,5 +1,6 @@
 export const POST_TOPIC = 'POST_TOPIC';
-
+export const UPVOTE = 'UPVOTE';
+export const DOWNVOTE = 'DOWNVOTE';
 
 export function postTopic(data) {
   return {
@@ -7,3 +8,18 @@ export function postTopic(data) {
     data,
   };
 }
+
+export function upVote(index) {
+  return {
+    type: 'UPVOTE',
+    index,
+  };
+}
+
+export function downVote(index) {
+  return {
+    type: 'DOWNVOTE',
+    index,
+  };
+}
+
