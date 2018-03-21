@@ -9,6 +9,7 @@ import TopicTypeLabel from './TopicTypeLabel';
 class Topic extends PureComponent {
   checkIfStringIsValidUrl(data) {
     if (data.indexOf('http://') === 0 || data.indexOf('https://') === 0) {
+      /* Return true if 'http://' or 'https://' is found */
       return true;
     }
     return false;
@@ -16,7 +17,7 @@ class Topic extends PureComponent {
 
   render() {
     const { index, topicData } = this.props;
-    /* Append http:// if URL is invalid */
+    /* Append 'http://' if URL is invalid */
     const topicUrl = (this.checkIfStringIsValidUrl(topicData.url) ? topicData.url : `http://${topicData.url}`);
 
     return (

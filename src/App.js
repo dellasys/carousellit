@@ -2,10 +2,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { save, load } from 'redux-localstorage-simple';
-import logger from 'redux-logger';
-import rootReducer from './rootReducer';
+import { composeWithDevTools } from 'redux-devtools-extension'; /* Needed for redux dev tools */
+import { save, load } from 'redux-localstorage-simple'; /* Save redux state to localStorage */
+import logger from 'redux-logger'; /* Display prev state, action triggered, and next state in console */
+import rootReducer from './rootReducer'; /* Combining all the reducers */
 
 import logo from './logo.svg';
 import './App.css';
@@ -13,7 +13,7 @@ import './App.css';
 import PostTopic from './postTopic/PostTopic';
 import TopicList from './topics/TopicsList';
 
-const middleware = [logger];
+const middleware = [logger]; /* Array to keep all the middlewares */
 
 const store = createStore(
   rootReducer,

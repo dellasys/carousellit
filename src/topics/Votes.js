@@ -1,7 +1,6 @@
 /* eslint no-shadow:0,
     jsx-a11y/interactive-supports-focus:0,
     jsx-a11y/click-events-have-key-events:0 */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';

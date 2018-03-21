@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const TopicContent = ({ topicUrl, topicData }) => (
   <div>
-    {
+    {/* Text will be a link if type is url */
     topicData.type === 'url' ?
       <a href={topicUrl} target="_blank">
         <div>{topicData.text}</div>

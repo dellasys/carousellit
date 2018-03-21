@@ -20,6 +20,7 @@ class PostTopic extends Component {
   }
 
   getId() {
+    /* Generate a combination of 32 characters id from numbers and alphabets */
     return randomstring.generate();
   }
 
@@ -36,13 +37,15 @@ class PostTopic extends Component {
     /* eslint no-shadow:0 */
     const { postTopic } = this.props;
     const { formType, topicForm } = this.state;
+    /* Dispatch action POST_TOPIC to save topic value */
     postTopic({
       _id: this.getId(),
       ...topicForm,
       type: formType,
-      vote: 0,
+      vote: 0, /* Vote default value set 0 */
       createdAt: new Date(),
-    }); /* Dispatch action POST_TOPIC */
+    });
+    /* Clear input after saving topic value */
     this.setState({
       topicForm: {
         text: '',
@@ -52,12 +55,14 @@ class PostTopic extends Component {
   }
 
   changeFormType(type) {
+    /* Selected form type */
     this.setState({
       formType: type,
     });
   }
 
   clearAndReload() {
+    /* Clear localStorage data and refresh */
     clear();
     window.location.reload();
   }

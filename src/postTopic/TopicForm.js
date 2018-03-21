@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const TopicForm = ({ topicForm, formType, handleInputChange }) => (
   <div>
-    {/* URL input box if formType is url */
+    {/* URL input box will be displayed if formType is url */
       formType === 'url' &&
       <div className="form-group">
         <label htmlFor="text">{formType.toUpperCase()}</label>
