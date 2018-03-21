@@ -1,5 +1,6 @@
 /* eslint jsx-a11y/interactive-supports-focus:0,
-  jsx-a11y/click-events-have-key-events:0,no-unused-vars:0 */
+  jsx-a11y/click-events-have-key-events:0,no-unused-vars:0,
+  jsx-a11y/no-noninteractive-element-to-interactive-role:0 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { clear } from 'redux-localstorage-simple';
@@ -72,26 +73,28 @@ class PostTopic extends Component {
 
     return (
       <div>
-        <div className="appHeader">
-          <div className="headerTitle">
-            <h4>Post New Topic</h4>
+        <form onSubmit={() => this.saveTopic()}>
+          <div className="appHeader">
+            <div className="headerTitle">
+              <h4>Post New Topic</h4>
+            </div>
+            <div className="clearAllBtn">
+              <h5 role="button" onClick={() => this.clearAndReload()}>Clear All</h5>
+            </div>
           </div>
-          <div role="button" className="clearAllBtn" onClick={() => this.clearAndReload()}>
-            <h5>Clear All</h5>
+          <TopicTabs
+            formType={formType}
+            changeFormType={type => this.changeFormType(type)}
+          />
+          <TopicForm
+            topicForm={topicForm}
+            formType={formType.toLowerCase()}
+            handleInputChange={e => this.handleInputChange(e)}
+          />
+          <div className="alignMiddle">
+            <button className="btn btn-default" type="submit">Post</button>
           </div>
-        </div>
-        <TopicTabs
-          formType={formType}
-          changeFormType={type => this.changeFormType(type)}
-        />
-        <TopicForm
-          topicForm={topicForm}
-          formType={formType.toLowerCase()}
-          handleInputChange={e => this.handleInputChange(e)}
-        />
-        <div className="alignMiddle">
-          <button className="btn btn-default" type="button" onClick={() => this.saveTopic()}>Post</button>
-        </div>
+        </form>
       </div>
     );
   }

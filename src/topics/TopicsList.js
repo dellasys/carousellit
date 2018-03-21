@@ -8,12 +8,13 @@ const TopicList = ({ topicsList }) => {
   /* Sort an array with descending order of vote number */
   const sortedTopics = [].concat(topicsList).sort((a, b) => b.vote - a.vote,
   );
+  const recordLimit = 20;
 
   return (
     <div>
       <FlipMove duration={350} easing="ease-out">
         {/* Iterate sorted array into Topic component */
-          sortedTopics.map((eachTopic, idx) =>
+          sortedTopics.slice(0, recordLimit).map((eachTopic, idx) =>
             <Topic key={eachTopic._id} index={idx} topicData={eachTopic} />,
           )
         }

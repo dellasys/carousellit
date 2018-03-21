@@ -8,10 +8,10 @@ const TEXT = 'text';
 const TopicTabs = ({ formType, changeFormType }) => (
   <ul className="nav nav-tabs">
     <Tab role="presentation" className={formType === TEXT ? 'active' : ''}>
-      <a href="#textTab" onClick={() => changeFormType(TEXT)}>{TEXT.toUpperCase()}</a>
+      <a href="#textTab" onClick={() => changeFormType(TEXT)}><strong>{TEXT.toUpperCase()}</strong></a>
     </Tab>
     <Tab role="presentation" className={formType === URL ? 'active' : ''}>
-      <a href="#urlTab" onClick={() => changeFormType(URL)}>{URL.toUpperCase()}</a>
+      <a href="#urlTab" onClick={() => changeFormType(URL)}><strong>{URL.toUpperCase()}</strong></a>
     </Tab>
   </ul>
 );

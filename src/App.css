@@ -58,17 +58,20 @@ pre{
 }
 
 .headerTitle{
-  width: 450px;
+  width: 90%;
 }
 
 .clearAllBtn{
   color:#BF242D;
-  /* border: 1px solid red; */
   text-align: right; 
-  float:right;
-  width: 100%;
+  width: 90px;
 }
 
 .appHeader{
   display:flex;
+}
+
+.endOfTheList{
+  text-align: center;
+  color:#ccc;
 }

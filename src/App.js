@@ -35,6 +35,10 @@ const App = () => (
             <PostTopic />
             <hr />
             <TopicList />
+            <div className="endOfTheList">
+              Only top 20 records will be displayed.
+            </div>
+            <br />
           </div>
           <div className="col-sm-2" />
         </div>
