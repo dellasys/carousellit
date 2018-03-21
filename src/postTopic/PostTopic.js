@@ -34,7 +34,8 @@ class PostTopic extends Component {
     });
   }
 
-  saveTopic() {
+  saveTopic(e) {
+    e.preventDefault();
     /* eslint no-shadow:0 */
     const { postTopic } = this.props;
     const { formType, topicForm } = this.state;
@@ -73,7 +74,7 @@ class PostTopic extends Component {
 
     return (
       <div>
-        <form onSubmit={() => this.saveTopic()}>
+        <form onSubmit={e => this.saveTopic(e)}>
           <div className="appHeader">
             <div className="headerTitle">
               <h4>Post New Topic</h4>
