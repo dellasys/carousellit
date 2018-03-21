@@ -1,40 +1,33 @@
-import React, { Component } from 'react';
+/* eslint no-shadow:0,
+    jsx-a11y/interactive-supports-focus:0,
+    jsx-a11y/click-events-have-key-events:0 */
+
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { upVote, downVote } from '../postTopic/actions';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import arrowUp from '../arrows/arrow_up.png';
 import arrowDown from '../arrows/arrow_down.png';
 
-class Votes extends Component {
-  componentDidMount() {
+const Votes = ({
+  voteNum, upVote, downVote, topicId,
+}) => (
+  <div className="alignMiddle">
+    {/*  Dispatcher upVote increase vote number by 1 */}
+    <div role="button" onClick={() => upVote(topicId)}>
+      <ArrowImg alt="up vote" src={arrowUp} />
+    </div>
+    <div>{voteNum}</div>
+    {/*  Dispatcher downVote crease vote number by 1 */}
+    <div role="button" onClick={() => downVote(topicId)}>
+      <ArrowImg alt="down vote" src={arrowDown} />
+    </div>
+  </div>
+);
 
-  }
-
-  componentWillUnmount() {
-
-  }
-
-  render() {
-    const {
-      voteNum, upVote, downVote, topicId,
-    } = this.props;
-
-    return (
-      <div className="align_middle">
-        <div role="button" onClick={() => upVote(topicId)}>
-          <ArrowImg alt="up vote" src={arrowUp} />
-        </div>
-        <div>{voteNum}</div>
-        <div role="button" onClick={() => downVote(topicId)}>
-          <ArrowImg alt="down vote" src={arrowDown} />
-        </div>
-      </div>
-    );
-  }
-}
-
+/* eslint no-unused-vars:0 */
 const mapStateToProps = state => ({
 
 });

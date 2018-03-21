@@ -1,10 +1,14 @@
+/* eslint jsx-a11y/interactive-supports-focus:0,
+  jsx-a11y/click-events-have-key-events:0,no-unused-vars:0 */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { clear } from 'redux-localstorage-simple';
+import randomstring from 'randomstring';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { postTopic } from './actions';
 import TopicTabs from './TopicTabs';
 import TopicForm from './TopicForm';
-import randomstring from 'randomstring';
 
 class PostTopic extends Component {
   state = {
@@ -29,6 +33,7 @@ class PostTopic extends Component {
   }
 
   saveTopic() {
+    /* eslint no-shadow:0 */
     const { postTopic } = this.props;
     const { formType, topicForm } = this.state;
     postTopic({
@@ -52,12 +57,24 @@ class PostTopic extends Component {
     });
   }
 
+  clearAndReload() {
+    clear();
+    window.location.reload();
+  }
+
   render() {
     const { topicForm, formType } = this.state;
 
     return (
       <div>
-        <h4>Post New Topic</h4>
+        <div className="appHeader">
+          <div className="headerTitle">
+            <h4>Post New Topic</h4>
+          </div>
+          <div role="button" className="clearAllBtn" onClick={() => this.clearAndReload()}>
+            <h5>Clear All</h5>
+          </div>
+        </div>
         <TopicTabs
           formType={formType}
           changeFormType={type => this.changeFormType(type)}
@@ -67,8 +84,8 @@ class PostTopic extends Component {
           formType={formType.toLowerCase()}
           handleInputChange={e => this.handleInputChange(e)}
         />
-        <div>
-          <button type="button" onClick={() => this.saveTopic()}>Post</button>
+        <div className="alignMiddle">
+          <button className="btn btn-default" type="button" onClick={() => this.saveTopic()}>Post</button>
         </div>
       </div>
     );
@@ -82,5 +99,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
   postTopic,
 }, dispatch);
+
+PostTopic.propTypes = {
+  postTopic: PropTypes.func.isRequired,
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostTopic);

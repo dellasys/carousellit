@@ -28,7 +28,7 @@
   to { transform: rotate(360deg); }
 }
 
-.align_middle{
+.alignMiddle{
   text-align: center;
 }
 
@@ -55,4 +55,20 @@ pre{
     white-space: pre;
     margin: 1em 0;
     border:0;
+}
+
+.headerTitle{
+  width: 450px;
+}
+
+.clearAllBtn{
+  color:#BF242D;
+  /* border: 1px solid red; */
+  text-align: right; 
+  float:right;
+  width: 100%;
+}
+
+.appHeader{
+  display:flex;
 }

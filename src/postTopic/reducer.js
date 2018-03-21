@@ -16,12 +16,16 @@ export default function (state = initialState, action) {
     case UPVOTE:
       return {
         ...state,
-        topicsList: state.topicsList.map(topic => (topic._id === topicId ? { ...topic, vote: topic.vote + 1 } : topic)),
+        topicsList: state.topicsList.map(topic =>
+          (topic._id === topicId ?
+            { ...topic, vote: topic.vote + 1 } : topic)),
       };
     case DOWNVOTE:
       return {
         ...state,
-        topicsList: state.topicsList.map(topic => (topic._id === topicId ? { ...topic, vote: topic.vote - 1 } : topic)),
+        topicsList: state.topicsList.map(topic =>
+          (topic._id === topicId ?
+            { ...topic, vote: topic.vote - 1 } : topic)),
       };
     default:
       return state;

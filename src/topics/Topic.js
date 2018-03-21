@@ -2,41 +2,37 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Votes from './Votes';
-
-const topicNumStyle = {
-  float: 'right',
-};
+import TopicNumber from './TopicNumber';
+import TopicContent from './TopicContent';
+import TopicTypeLabel from './TopicTypeLabel';
 
 class Topic extends PureComponent {
+  checkIfStringIsValidUrl(data) {
+    if (data.indexOf('http://') === 0 || data.indexOf('https://') === 0) {
+      return true;
+    }
+    return false;
+  }
+
   render() {
     const { index, topicData } = this.props;
-    /* Append http:// if invalid URL */
-    const topicUrl = (!topicData.url.match(/^[a-zA-Z]+:\/\//) ? `http://${topicData.url}` : topicData.url);
+    /* Append http:// if URL is invalid */
+    const topicUrl = (this.checkIfStringIsValidUrl(topicData.url) ? topicData.url : `http://${topicData.url}`);
 
     return (
       <TopicBox>
-        <div className="topicVoteDiv align_middle">
-          <div className={`label label-${topicData.type === 'text' ? 'primary' : 'danger'}`}>
-            {topicData.type.toUpperCase()}
-          </div>
+        <div className="topicVoteDiv alignMiddle">
+          <TopicTypeLabel topicData={topicData} />
           <div>
             <Votes topicId={topicData._id} voteNum={topicData.vote} />
           </div>
         </div>
         <div className="topicContentDiv">
-          <div>
-            {
-            topicData.type === 'url' ?
-              <a href={topicUrl} target="_blank">
-                <div>{topicData.text}</div>
-              </a>
-            :
-              <div>{topicData.text}</div>
-          }
-          </div>
+          <TopicContent topicUrl={topicUrl} topicData={topicData} />
         </div>
+
         <div className="topicNumberDiv">
-          <span style={topicNumStyle}>{index + 1}</span>
+          <TopicNumber index={index} />
         </div>
       </TopicBox>);
   }
