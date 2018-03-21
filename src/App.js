@@ -1,7 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
+
 
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
@@ -9,6 +10,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { save, load } from 'redux-localstorage-simple';
 import logger from 'redux-logger';
 import rootReducer from './rootReducer';
+
+import PostTopic from './postTopic/PostTopic';
 
 const middleware = [logger];
 
@@ -29,7 +32,7 @@ const App = () => (
         <div className="row">
           <div className="col-xs-3" />
           <div className="col-xs-6">
-            content
+            <PostTopic />
           </div>
           <div className="col-xs-3" />
         </div>
