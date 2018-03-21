@@ -8,7 +8,6 @@ import TopicForm from './TopicForm';
 class PostTopic extends Component {
   state = {
     topicForm: {
-      title: '',
       text: '',
       url: '',
     },
@@ -35,10 +34,9 @@ class PostTopic extends Component {
   saveTopic() {
     const { postTopic } = this.props;
     const { formType, topicForm } = this.state;
-    postTopic({ ...topicForm, type: formType }); /* Dispatch action POST_TOPIC */
+    postTopic({ ...topicForm, type: formType, createdAt: new Date() }); /* Dispatch action POST_TOPIC */
     this.setState({
       topicForm: {
-        title: '',
         text: '',
         url: '',
       },
@@ -57,7 +55,7 @@ class PostTopic extends Component {
 
     return (
       <div>
-        Post New Topic
+        <h4>Post New Topic</h4>
         <TopicTabs
           formType={formType}
           changeFormType={type => this.changeFormType(type)}

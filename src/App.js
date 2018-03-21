@@ -26,15 +26,17 @@ const App = () => (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to React</h1>
+        <h1 className="App-title">Welcome to Carousellit</h1>
       </header>
       <div className="container">
         <div className="row">
-          <div className="col-xs-3" />
-          <div className="col-xs-6">
+          <div className="col-sm-3" />
+          <div className="col-sm-6">
             <PostTopic />
+            <br />
+            <TopicList />
           </div>
-          <div className="col-xs-3" />
+          <div className="col-sm-3" />
         </div>
       </div>
     </div>

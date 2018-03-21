@@ -6,7 +6,7 @@ const TEXT = 'text';
 
 
 const TopicTabs = ({ formType, changeFormType }) => (
-  <ul className="nav nav-tabs">
+  <ul className="nav nav-tabs nav-justified">
     <li role="presentation" className={formType === TEXT ? 'active' : ''}>
       <a href="#textTab" onClick={() => changeFormType(TEXT)}>{TEXT.toUpperCase()}</a>
     </li>
