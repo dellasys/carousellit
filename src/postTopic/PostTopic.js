@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { postTopic } from './actions';
 import TopicTabs from './TopicTabs';
 import TopicForm from './TopicForm';
+import randomstring from 'randomstring';
 
 class PostTopic extends Component {
   state = {
@@ -14,12 +15,8 @@ class PostTopic extends Component {
     formType: 'text',
   }
 
-  componentDidMount() {
-
-  }
-
-  componentWillUnmount() {
-
+  getId() {
+    return randomstring.generate();
   }
 
   handleInputChange(e) {
@@ -35,7 +32,11 @@ class PostTopic extends Component {
     const { postTopic } = this.props;
     const { formType, topicForm } = this.state;
     postTopic({
-      ...topicForm, type: formType, vote: 0, createdAt: new Date(),
+      _id: this.getId(),
+      ...topicForm,
+      type: formType,
+      vote: 0,
+      createdAt: new Date(),
     }); /* Dispatch action POST_TOPIC */
     this.setState({
       topicForm: {
@@ -52,7 +53,6 @@ class PostTopic extends Component {
   }
 
   render() {
-    // const {} = this.props;
     const { topicForm, formType } = this.state;
 
     return (

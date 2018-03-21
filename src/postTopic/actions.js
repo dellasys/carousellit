@@ -9,17 +9,17 @@ export function postTopic(data) {
   };
 }
 
-export function upVote(index) {
+export function upVote(topicId) {
   return {
     type: 'UPVOTE',
-    index,
+    topicId,
   };
 }
 
-export function downVote(index) {
+export function downVote(topicId) {
   return {
     type: 'DOWNVOTE',
-    index,
+    topicId,
   };
 }
 
