@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
@@ -17,21 +18,25 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(...middleware, save())),
 );
 
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+const App = () => (
+  <Provider store={store}>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1 className="App-title">Welcome to React</h1>
+      </header>
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-3" />
+          <div className="col-xs-6">
+            content
+          </div>
+          <div className="col-xs-3" />
+        </div>
       </div>
-    );
-  }
-}
+    </div>
+  </Provider>
+);
+
 
 export default App;
