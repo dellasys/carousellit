@@ -8,12 +8,12 @@ const TopicForm = ({ topicForm, formType, handleInputChange }) => (
       formType === 'url' &&
       <div className="form-group">
         <label htmlFor="text">{formType.toUpperCase()}</label>
-        <input type="text" className="form-control" maxLength="255" rows="3" value={topicForm[formType]} name={formType} id={formType} onChange={e => handleInputChange(e)} />
+        <input type="text" className="form-control" maxLength="255" rows="3" value={topicForm[formType]} name={formType} id={formType} onChange={e => handleInputChange(e)} required />
       </div>
     }
     <div className="form-group">
       <label htmlFor="text">TEXT</label>
-      <textarea className="form-control" maxLength="255" rows="3" value={topicForm.text} name="text" id="text" onChange={e => handleInputChange(e)} />
+      <textarea className="form-control" maxLength="255" rows="3" value={topicForm.text} name="text" id="text" onChange={e => handleInputChange(e)} required />
       <div className="textCounter">{topicForm.text.length}/255</div>
     </div>
 

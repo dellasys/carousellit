@@ -1,5 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+*******************************************************************
+Author : Ng Yin Sheng
+
+PROJECT TITLE : Carousellit (Code challenge)
+- A simple app with some features such as topic and url posting. It allows user to upvote and downvote each posted topic and will be sorted as descending order by the votes. Only first 20 records will be displayed on the homepage. No validation is implemented in this form.
+
+1. Git clone this project from https://github.com/dellasys/carousellit.git
+2. In terminal, cd to the project root folder and run npm install.
+3. Run npm start
+
+You can now view carousellit in the browser. - http://localhost:3000/
+
+You also can find the source at https://github.com/dellasys/carousellit
+
+*******************************************************************
+
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
