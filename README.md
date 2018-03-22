@@ -1,10 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
 *******************************************************************
 Author : Ng Yin Sheng
-
-PROJECT TITLE : Carousellit (Code challenge)
-- A simple app with some features such as topic and url posting. It allows user to upvote and downvote each posted topic and will be sorted as descending order by the votes. Only first 20 records will be displayed on the homepage. No validation is implemented in this form.
+Information : This project has utilised the create-react-app tool to generate a generic boilerplate.
+Project Title : Carousellit (Code challenge)
+Description : A simple app with features such as topic/url posting. It allows user to upvote and downvote each topic and will be sorted as descending order by the votes. Only first 20 records will be displayed on the homepage. A basic html form validation has implemented. Thanks to the package redux-localstorage-simple that allows redux state to be stored in localStorage easily. You could clear the localstorage data by using the Clear All button in home page.
+Framework : reactJs
 
 1. Git clone this project from https://github.com/dellasys/carousellit.git
 2. In terminal, cd to the project root folder and run npm install.
@@ -14,7 +13,18 @@ You can now view carousellit in the browser. - http://localhost:3000/
 
 You also can find the source at https://github.com/dellasys/carousellit
 
+Files that has written/modified by author :
+Carousellit
+|- App.css, App.js, rootReducer.js, setupTests.js
+|- arrows
+|  |- arrow_down.png, arrow_up.png
+|- postTopic
+|  |- actions.js, PostTopic.js, reducer.js, TopicForm.js, TopicTabs.js
+| topics
+|  |- Topic.js, TopicContent.js, TopicNumber.js, TopicNumber.test.js, TopicList.js, TopicTypeLabel.js, Vote.js
 *******************************************************************
+
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
