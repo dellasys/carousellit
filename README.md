@@ -1,7 +1,5 @@
 ## Carousellit
 *******************************************************************
-**Author :** Ng Yin Sheng
-
 **Information :** This project has utilised the create-react-app tool to generate a generic boilerplate.
 
 **Project Title :** Carousellit (Code challenge)
